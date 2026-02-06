@@ -415,6 +415,7 @@ const projects = [
 				let isDragging = false;
 				let offset = { x: 0, y: 0 };
 
+				// Mouse events
 				titleBar.addEventListener('mousedown', (e) => {
 					isDragging = true;
 					offset.x = e.clientX - win.offsetLeft;
@@ -429,6 +430,24 @@ const projects = [
 				});
 
 				document.addEventListener('mouseup', () => isDragging = false);
+				
+				// Touch events for mobile
+				titleBar.addEventListener('touchstart', (e) => {
+					isDragging = true;
+					const touch = e.touches[0];
+					offset.x = touch.clientX - win.offsetLeft;
+					offset.y = touch.clientY - win.offsetTop;
+					win.style.zIndex = Number(new Date().getTime() / 1000).toFixed(0);
+				});
+				
+				document.addEventListener('touchmove', (e) => {
+					if (!isDragging) return;
+					const touch = e.touches[0];
+					win.style.left = (touch.clientX - offset.x) + 'px';
+					win.style.top = (touch.clientY - offset.y) + 'px';
+				});
+				
+				document.addEventListener('touchend', () => isDragging = false);
 			});
 
 			// Real-time Clock
@@ -827,6 +846,146 @@ const projects = [
 			.tree-view li:before {
 				content: "📄 ";
 				margin-right: 5px;
+			}
+
+			/* === RESPONSIVE DESIGN === */
+			
+			/* Tablet (iPad) */
+			@media (max-width: 1024px) {
+				.desktop {
+					grid-template-columns: repeat(auto-fill, 75px);
+					grid-template-rows: repeat(auto-fill, 90px);
+					gap: 15px;
+					padding: 10px;
+				}
+				
+				.draggable-window {
+					width: 90% !important;
+					max-width: 700px;
+					left: 5% !important;
+					top: 30px !important;
+				}
+				
+				.folder-grid {
+					grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+					gap: 8px;
+				}
+			}
+			
+			/* Mobile */
+			@media (max-width: 768px) {
+				body {
+					font-size: 14px;
+				}
+				
+				.desktop {
+					grid-template-columns: repeat(3, 1fr);
+					grid-template-rows: repeat(auto-fill, 85px);
+					grid-auto-flow: row;
+					gap: 10px;
+					padding: 8px;
+				}
+				
+				.shortcut {
+					width: 70px;
+					font-size: 11px;
+				}
+				
+				.shortcut img {
+					width: 28px;
+					height: 28px;
+				}
+				
+				.draggable-window {
+					width: 95% !important;
+					left: 2.5% !important;
+					top: 10px !important;
+				}
+				
+				.title-bar {
+					touch-action: none;
+				}
+				
+				.notepad {
+					padding: 12px;
+					font-size: 14px;
+					max-height: 400px;
+				}
+				
+				.scroll-body {
+					max-height: 350px;
+					padding: 10px;
+				}
+				
+				.folder-view {
+					height: 300px;
+				}
+				
+				.folder-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 8px;
+					padding: 10px;
+				}
+				
+				.thumb-box {
+					width: 80px;
+					height: 60px;
+				}
+				
+				.timeline-year {
+					display: block;
+					margin-bottom: 3px;
+				}
+				
+				.timeline-detail {
+					display: block;
+				}
+				
+				fieldset {
+					padding: 8px 10px;
+				}
+				
+				.taskbar {
+					height: 40px;
+					padding: 3px;
+				}
+				
+				.start-button {
+					font-size: 13px;
+					height: 32px;
+				}
+				
+				.time {
+					font-size: 11px;
+					padding: 2px 6px;
+				}
+			}
+			
+			/* Small Mobile */
+			@media (max-width: 480px) {
+				.desktop {
+					grid-template-columns: repeat(3, 1fr);
+					gap: 8px;
+					padding: 5px;
+				}
+				
+				.shortcut {
+					width: 60px;
+					font-size: 10px;
+				}
+				
+				.shortcut img {
+					width: 24px;
+					height: 24px;
+				}
+				
+				.folder-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				
+				.notepad h3 {
+					font-size: 16px;
+				}
 			}
 		</style>
 	</body>

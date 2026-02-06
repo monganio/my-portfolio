@@ -1,0 +1,833 @@
+---
+import '98.css';
+
+const projects = [
+  { 
+    title: "AI in ERP Research", 
+    desc: "Research and develop AI solutions for Mango ERP system.",
+    tech: "Python, ML" 
+  },
+  { 
+    title: "Data Visualization Workshop", 
+    desc: "Speaker and TA for Tableau workshops at BU Open House.",
+    tech: "Tableau" 
+  }
+];
+---
+
+<html lang="th">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Mameaw | AI Engineer Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="desktop" id="desktop">
+			
+			<div class="shortcut" ondblclick="openWindow('win-about')">
+				<img src="/icons/Category/People/Agent.ico" alt="About Me" />
+				<p>About Me</p>
+			</div>
+
+			<div class="shortcut" ondblclick="openWindow('win-exp')">
+				<img src="/icons/Category/Briefcases/Briefcase.ico" alt="Experience" />
+				<p>Experiences</p>
+			</div>
+
+            <div class="shortcut" ondblclick="openWindow('win-activity')">
+				<img src="/icons/Category/Books/Book2.ico" alt="Activities" />
+				<p>Activities & Competitions</p>
+			</div>
+
+			<div class="shortcut" ondblclick="openWindow('win-project')">
+				<img src="/icons/Category/Folders/Opened Folder.ico" alt="Projects" />
+				<p>My Projects</p>
+			</div>
+
+            <div class="shortcut" ondblclick="openWindow('win-cert')">
+				<img src="/icons/Category/Sheets/Certificate.ico" alt="Certificates" />
+				<p>Certificates</p>
+			</div>
+
+			<div class="shortcut" ondblclick="openWindow('win-contact')">
+				<img src="/icons/All/Mail.ico" alt="Contact" />
+				<p>Contact Me</p>
+			</div>
+
+			<div class="shortcut">
+				<img src="/icons/All/My Computer.ico" alt="My Computer" />
+				<p>My Computer</p>
+			</div>
+
+			<div class="shortcut">
+				<img src="/icons/All/Empty Recycle Bin.ico" alt="Recycle Bin" />
+				<p>Recycle Bin</p>
+			</div>
+
+			<div id="win-about" class="window draggable-window">
+				<div class="title-bar">
+					<div class="title-bar-text">About_Me.txt - Notepad</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-about')"></button>
+					</div>
+				</div>
+				<div class="window-body notepad">
+					<h3>ศุภรัตน์ สุขผ่อง (มะเหมี่ยว)</h3>
+					<p>นักศึกษาปี 4 สาขา AI Engineering and Data Science</p>
+					<p>"Learning and Growing Every Day"</p>
+					<hr />
+					<p>
+						สวัสดีค่ะ! หนูชื่อมะเหมี่ยว เป็นคนที่สนุกกับการแก้โจทย์และชอบวิชาคณิตศาสตร์ทั้งแบบ Pure และ Applied มาตลอด
+						พอได้ลองเรียนด้านคอมพิวเตอร์ เลยรู้ตัวว่าชอบสายนี้มาก ๆ โดยเฉพาะสายงาน
+						Machine Learning (ML) และ Natural Language Processing (NLP)
+					</p>
+					<p>
+						ตอนนี้กำลังมุ่งพัฒนาตัวเองให้เป็นวิศวกร AI ที่สามารถทั้ง <b>ทำวิจัย</b> และ <b>ลงมือพัฒนาโปรดักชันจริง</b>
+						พร้อมเปิดรับโอกาสใหม่ ๆ ในสายงาน AI และ Data เสมอค่ะ
+					</p>
+					<hr />
+					<p><b>Skills (Tech Stack):</b></p>
+					<ul class="skill-list">
+						<li>Python, SQL</li>
+						<li>Machine Learning, Deep Learning</li>
+						<li>NLP, Computer Vision</li>
+						<li>React, HTML &amp; CSS</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="win-exp" class="window draggable-window">
+				<div class="title-bar">
+					<div class="title-bar-text">Experience_Explorer.exe</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-exp')"></button>
+					</div>
+				</div>
+				<div class="window-body scroll-body">
+					<fieldset>
+						<legend>ประวัติการศึกษา (Education)</legend>
+						<ul class="timeline">
+							<li>
+								<span class="timeline-year">2019 - 2021</span>
+								<div class="timeline-detail">
+									<b>เบญจมราชูทิศ จันทบุรี</b><br />
+									MSEP : Mathematics, Science and English Excellent Program
+								</div>
+							</li>
+							<li>
+								<span class="timeline-year">2021 - 2022</span>
+								<div class="timeline-detail">
+									<b>GED &amp; Gap Year</b><br />
+								</div>
+							</li>
+							<li>
+								<span class="timeline-year">2022 - Present</span>
+								<div class="timeline-detail">
+									<b>Bangkok University</b><br />
+									Bachelor of Engineering in Artificial Intelligence Engineering and Data Science<br />
+									GPA: <b>3.92</b>
+								</div>
+							</li>
+						</ul>
+					</fieldset>
+
+					<fieldset style="margin-top: 15px;">
+						<legend>ประวัติการทำงาน (Experiences)</legend>
+						<ul class="timeline">
+							<li>
+								<span class="timeline-year">06/2025 - 11/2025</span>
+								<div class="timeline-detail">
+									<b>R&amp;D (AI in ERP) – Cooperative Education</b><br />
+									บริษัท แมงโก้ คอนซัลแตนท์ จำกัด<br />
+									<span class="timeline-note">
+										| ฝึกงานแบบสหกิจศึกษา 6 เดือน ทำหน้าที่ Research และสร้างโปรเจกต์ AI
+										เพื่อนำมาประยุกต์ใช้งานกับระบบ Mango ERP
+									</span>
+								</div>
+							</li>
+							<li>
+								<span class="timeline-year">01/2026 - Present</span>
+								<div class="timeline-detail">
+									<b>Part-time R&amp;D – Business Development</b><br />
+									บริษัท แมงโก้ คอนซัลแตนท์ จำกัด<br />
+									<span class="timeline-note">
+										| เรียน 2 วัน ทำงาน 4 วัน ดูทั้งฝั่ง Dev (สร้างโปรเจกต์ AI) และฝั่ง Business (วิเคราะห์คู่แข่ง)
+									</span>
+								</div>
+							</li>
+						</ul>
+					</fieldset>
+
+					<fieldset style="margin-top: 15px;">
+						<legend>Special Roles</legend>
+						<ul>
+							<li>Speaker: Data Visualization and Data Analytics with Tableau Workshop (BU Open House)</li>
+							<li>TA: Data Visualization with Tableau</li>
+							<li>Staff Tech: AI Hackathon Elephant Identification 2025</li>
+						</ul>
+					</fieldset>
+				</div>
+			</div>
+
+			<div id="win-activity" class="window draggable-window">
+				<div class="title-bar">
+					<div class="title-bar-text">Competitions.log</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-activity')"></button>
+					</div>
+				</div>
+				<div class="window-body" style="padding: 15px;">
+					<p><b>Activities &amp; Competitions</b></p>
+					<ul class="tree-view">
+						<li>TESA Top Gun Rally 2024</li>
+						<li>TESA Top Gun Rally 2025</li>
+						<li>PSAT Health Hack 2024</li>
+						<li>PSAT Health Hack 2025</li>
+						<li>AI Thailand Benchmark 2025</li>
+						<li>NSC 2025</li>
+						<li>Chaiyo GCP Season 4</li>
+						<li>Chaiyo GCP Season 5</li>
+						<li>PAN-SEA AI DEVELOPER CHALLENGE 2025</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="win-project" class="window draggable-window">
+				<div class="title-bar">
+					<div class="title-bar-text">C:\My-Projects</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-project')"></button>
+					</div>
+				</div>
+				<div class="window-body scroll-body">
+					<p><b>Selected Projects</b></p>
+					<ul class="project-list">
+						<li>
+							<b>Unsupervised Learning for Viral Marketing Strategy Optimization</b><br />
+							<span class="project-sub">
+								วิเคราะห์กลยุทธ์ Viral Marketing โดยใช้ Unsupervised Learning
+								อ้างอิง Six Degrees of Separation และ Similarity-Attraction Hypothesis
+							</span>
+						</li>
+						<li>
+							<b>KUKA Guess Who Project (BU Open House)</b><br />
+							<span class="project-sub">
+								โปรเจกต์ interactive กับหุ่นยนต์ KUKA ให้เล่นเกมทายตัวการ์ตูน (Guess Who) ด้วย AI
+							</span>
+						</li>
+						<li>
+							<b>Thai Gold Forecasting Project</b><br />
+							<span class="project-sub">
+								โมเดลคาดการณ์ราคาทองคำไทยด้วยเทคนิค Time Series / Machine Learning
+							</span>
+						</li>
+						<li>
+							<b>Multi AI Agent for ERP System</b><br />
+							<span class="project-sub">
+								ออกแบบ Multi-Agent System เพื่อช่วยงานภายในระบบ ERP (เช่น Recommendation / Automation)
+							</span>
+						</li>
+						<li>
+							<b>Receive OCR</b><br />
+							<span class="project-sub">
+								ระบบ OCR สำหรับอ่านข้อมูลจากเอกสาร / ใบเสร็จ เพื่อเตรียมข้อมูลสำหรับระบบ ERP / Analytics
+							</span>
+						</li>
+						<li>
+							<b>LearnRaiDee: RAG-based Chatbot for Elective Course Recommendation</b><br />
+							<span class="project-sub">
+								Chatbot แนะนำวิชาเลือก โดยใช้เทคนิค Retrieval-Augmented Generation (RAG)
+								ช่วยให้นักศึกษาเลือกวิชาได้ตรงความสนใจมากขึ้น
+							</span>
+						</li>
+					</ul>
+
+					<div class="status-bar">
+						<p class="status-bar-field">6 project(s)</p>
+						<p class="status-bar-field">Domain: AI &amp; Data</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="win-cert" class="window draggable-window" style="width: 600px;">
+				<div class="title-bar">
+					<div class="title-bar-text">A:\Certificates (Thumbnails View)</div>
+					<div class="title-bar-controls">
+						<button aria-label="Minimize"></button>
+						<button aria-label="Maximize"></button>
+						<button aria-label="Close" onclick="closeWindow('win-cert')"></button>
+					</div>
+				</div>
+				
+				<div class="window-body" style="margin: 0; padding: 0;">
+
+					<div class="scroll-body folder-view">
+						<div class="folder-grid">
+
+							<a href="/cer/Network_Security_Fundamentals_Student_Certificate.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/1.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>Network_Sec.pdf</span>
+							</a>
+
+							<a href="/cer/Cloud_Security_Fundamentals_Student_Certificate.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/2.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>Cloud_Sec.pdf</span>
+							</a>
+
+							<a href="/cer/Cybersecurity_Foundation_Student_Certificate.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/3.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>Cyber_Sec.pdf</span>
+							</a>
+
+							<a href="/cer/TGR2024.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/7.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>TGR2024.pdf</span>
+							</a>
+
+							<a href="/cer/PSAT2024.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/9.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>PSAT2024.pdf</span>
+							</a>
+
+							<a href="/cer/aFTi-Advance-AI-Engineer-Training.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/5.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>aFTi_Adv.pdf</span>
+							</a>
+
+							<a href="/cer/aFTi-Foundational-AI-Engineer-Training.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/6.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>aFTi_Found.pdf</span>
+							</a>
+
+							<a href="/cer/Data-Visualization-and-Data-Analytics-with-Tableau.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/11.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>Tableau.pdf</span>
+							</a>
+
+							<a href="/cer/certificate-of-completion-for-sql-crash-course.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/10.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>SQL_Course.pdf</span>
+							</a>
+
+							<a href="/cer/E-Certificate STAFF - AI Hackathon Elephant Identification 2025.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/4.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>AI_Staff.pdf</span>
+							</a>
+
+							<a href="/cer/ODDS-Summer-Camp.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/8.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>ODDS_Camp.pdf</span>
+							</a>
+
+							<a href="/cer/AI-Benchmark.pdf" target="_blank" class="file-item">
+								<div class="thumb-box">
+									<img src="/thumbnail/12.png" class="real-thumb" onerror="this.src='/icons/Category/Sheets/Certificate.ico'" />
+								</div>
+								<span>AI_Benchmark.pdf</span>
+							</a>
+
+						</div>
+					</div>
+
+					<div class="status-bar">
+						<p class="status-bar-field">12 object(s)</p>
+						<p class="status-bar-field">Thumbnails View</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="win-contact" class="window draggable-window">
+				<div class="title-bar">
+					<div class="title-bar-text">📧 Contact_Info.txt</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-contact')"></button>
+					</div>
+				</div>
+				<div class="window-body notepad">
+					<h3>📬 ช่องทางการติดต่อ</h3>
+					<hr />
+					<p><b>Email:</b><br />
+					<a href="mailto:suparat.miao@gmail.com">suparat.miao@gmail.com</a></p>
+	
+					<p><b>LinkedIn:</b><br />
+					<a href="https://linkedin.com/in/supharat-sukpong" target="_blank">linkedin.com/in/supharat-sukpong</a></p>
+					
+					<p><b>GitHub:</b><br />
+					<a href="https://github.com/monganio" target="_blank">github.com/monganio</a></p>
+					
+					<hr />
+					<p style="font-size: 13px; color: #666;">
+						Feel free to reach out for collaboration, opportunities, or just to say hi!
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="taskbar">
+			<button class="start-button">
+				<img src="/icons/Category/Windows/Windows.ico" width="16" />
+				Start
+			</button>
+			<div class="time" id="clock">12:00 PM</div>
+		</div>
+
+		<script is:inline>
+			function openWindow(id) {
+				const win = document.getElementById(id);
+				win.style.display = 'block';
+				win.style.zIndex = Number(new Date().getTime() / 1000).toFixed(0);
+			}
+			function closeWindow(id) {
+				document.getElementById(id).style.display = 'none';
+			}
+
+			// Draggable Script
+			const windows = document.querySelectorAll('.draggable-window');
+			windows.forEach(win => {
+				const titleBar = win.querySelector('.title-bar');
+				let isDragging = false;
+				let offset = { x: 0, y: 0 };
+
+				titleBar.addEventListener('mousedown', (e) => {
+					isDragging = true;
+					offset.x = e.clientX - win.offsetLeft;
+					offset.y = e.clientY - win.offsetTop;
+					win.style.zIndex = Number(new Date().getTime() / 1000).toFixed(0);
+				});
+
+				document.addEventListener('mousemove', (e) => {
+					if (!isDragging) return;
+					win.style.left = (e.clientX - offset.x) + 'px';
+					win.style.top = (e.clientY - offset.y) + 'px';
+				});
+
+				document.addEventListener('mouseup', () => isDragging = false);
+			});
+
+			// Real-time Clock
+			setInterval(() => {
+				const now = new Date();
+				document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+			}, 1000);
+		</script>
+
+		<style>
+			/* 1. Import Font Prompt */
+			@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
+
+			:root { 
+				--win-bg: #008080; 
+				--icon-spacing: 20px;
+			}
+
+			body, button, input, select, textarea {
+				margin: 0;
+				background-color: var(--win-bg);
+				background-image: 
+					repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px),
+					repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+				font-family: 'Prompt', system-ui, sans-serif !important;
+				overflow: hidden;
+				cursor: url('https://win95.ajf.me/cursors/arrow.cur'), auto;
+				font-size: 15px;
+				line-height: 1.6;
+			}
+
+			/* --- Desktop Layout --- */
+			.desktop {
+				width: 100vw;
+				height: calc(100vh - 35px);
+				padding: 15px;
+				display: grid;
+				grid-template-columns: repeat(auto-fill, 80px);
+				grid-template-rows: repeat(auto-fill, 100px);
+				grid-auto-flow: column;
+				gap: var(--icon-spacing);
+			}
+
+			/* --- Shortcut Icons --- */
+			.shortcut {
+				width: 80px;
+				text-align: center;
+				cursor: pointer;
+				color: white;
+				text-shadow: 1px 1px black;
+				font-size: 13px;
+				user-select: none;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.shortcut img { width: 32px; height: 32px; margin-bottom: 5px; }
+			.shortcut p {
+				background-color: transparent;
+				padding: 2px;
+				border: 1px dotted transparent;
+			}
+			.shortcut:active p {
+				background-color: #000080;
+				border: 1px dotted #ffff00;
+			}
+			.shortcut:active img { filter: brightness(0.7) sepia(1) hue-rotate(180deg); }
+
+			/* --- Window General Styles --- */
+			.draggable-window {
+				display: none;
+				position: absolute;
+				width: 600px;
+				top: 50px; left: 150px;
+				z-index: 10;
+				box-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+				animation: windowOpen 0.15s ease-out;
+			}
+			
+			@keyframes windowOpen {
+				from {
+					transform: scale(0.95);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+			.title-bar { 
+				cursor: move; 
+				padding: 3px 4px; 
+				font-family: 'Prompt', system-ui, sans-serif !important;
+			}
+			.window-body { 
+				margin: 0; 
+				padding: 0; 
+				display: flex; 
+				flex-direction: column; 
+				height: 100%; 
+				font-family: 'Prompt', system-ui, sans-serif !important;
+				font-size: 15px;
+				line-height: 1.6;
+			}
+			/* บังคับฟอนต์สำหรับทุก element ภายใน window (รวม Activity & Competitions) */
+			.window-body * {
+				font-family: 'Prompt', system-ui, sans-serif !important;
+			}
+			
+			/* Notepad Style */
+			.notepad {
+				background: white !important;
+				border: inset 2px !important;
+				padding: 20px;
+				color: black;
+				min-height: 200px;
+				max-height: 500px;
+				overflow-y: auto;
+				font-family: 'Prompt', system-ui, sans-serif !important;
+				font-size: 15px;
+				line-height: 1.7;
+			}
+			
+			.notepad hr {
+				border: none;
+				border-top: 1px solid #c0c0c0;
+				margin: 15px 0;
+			}
+
+			/* About / Skills */
+			.skill-list {
+				margin: 5px 0 0 18px;
+				padding: 0;
+			}
+			.skill-list li {
+				margin-bottom: 2px;
+			}
+
+			/* --- Folder View (Certificates) Styles --- */
+			.menu-bar {
+				display: flex;
+				padding: 2px 5px;
+				border-bottom: 1px solid #808080;
+				background: #c0c0c0;
+				font-size: 13px;
+				gap: 10px;
+			}
+			.menu-item { padding: 0 5px; cursor: default; }
+			.menu-item:first-letter { text-decoration: underline; }
+
+			.folder-view {
+				background-color: #ffffff !important;
+				border: inset 2px !important;
+				margin: 2px;
+				height: 380px;
+				overflow-y: auto;
+			}
+
+			.folder-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+				gap: 10px;
+				padding: 15px;
+			}
+
+			/* Timeline list (Experiences window) */
+			.timeline {
+				list-style: none;
+				margin: 5px 0 0;
+				padding: 0;
+			}
+			.timeline li {
+				margin-bottom: 8px;
+			}
+			.timeline-year {
+				display: inline-block;
+				min-width: 110px;
+				font-weight: 600;
+				color: #000080;
+			}
+			.timeline-detail {
+				display: inline-block;
+			}
+			.timeline-note {
+				font-size: 13px;
+				color: #444;
+			}
+
+			/* Projects list */
+			.project-list {
+				margin: 5px 0 10px 18px;
+				padding: 0;
+			}
+			.project-list li {
+				margin-bottom: 8px;
+			}
+			.project-sub {
+				font-size: 13px;
+				color: #444;
+			}
+
+			/* Thumbnail Box */
+			.file-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				text-decoration: none;
+				color: black;
+				padding: 8px;
+				border: 1px solid transparent;
+				transition: all 0.1s;
+				cursor: pointer;
+				border-radius: 2px;
+			}
+			.file-item:hover {
+				background-color: #000080;
+				color: white;
+				border: 1px dotted #ffffff;
+			}
+			.file-item:hover .thumb-box { 
+				border-color: #fff;
+				box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			.thumb-box {
+				width: 90px;
+				height: 70px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 6px;
+				background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+				border: 1px solid #999;
+				box-shadow: 
+					2px 2px 0px rgba(0,0,0,0.15),
+					inset 1px 1px 0px rgba(255,255,255,0.8);
+				position: relative;
+				transition: all 0.1s;
+			}
+
+			.real-thumb {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+			}
+
+			.file-item span {
+				font-size: 12px;
+				line-height: 1.2;
+				word-break: break-word;
+				max-width: 100px;
+			}
+
+			/* --- Status Bar --- */
+			.status-bar {
+				display: flex !important;
+				flex-direction: row !important;
+				align-items: center;
+				gap: 2px;
+				margin: 2px;
+				padding: 2px 0;
+				height: 25px;
+			}
+			
+			.status-bar-field {
+				margin: 0;
+				padding: 2px 5px;
+				border: inset 1px;
+				font-size: 12px;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				background: #c0c0c0;
+			}
+
+			/* --- Taskbar --- */
+			.taskbar {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 34px;
+				background: linear-gradient(180deg, #dfdfdf 0%, #c0c0c0 100%);
+				border-top: 2px solid #ffffff;
+				display: flex;
+				align-items: center;
+				padding: 2px 5px;
+				box-shadow: 
+					inset 1px 1px 0px rgba(255,255,255,0.8),
+					0 -2px 4px rgba(0,0,0,0.1);
+				z-index: 9999;
+			}
+			
+			.start-button {
+				font-weight: bold;
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				height: 28px;
+				padding: 0 8px;
+				transition: all 0.1s;
+			}
+			
+			.start-button:hover {
+				filter: brightness(1.05);
+			}
+			
+			.start-button:active {
+				filter: brightness(0.95);
+			}
+			
+			.time {
+				margin-left: auto;
+				background: #c0c0c0;
+				border: inset 2px;
+				padding: 3px 10px;
+				font-size: 12px;
+			}
+
+			/* --- Typography --- */
+			h3 {
+				margin-top: 0;
+				color: #000080;
+				font-weight: 600;
+			}
+			
+			a {
+				color: #0000ee;
+			}
+			
+			/* --- Scrollable Body --- */
+			.scroll-body {
+				max-height: 450px;
+				overflow-y: auto;
+				padding: 15px;
+			}
+			
+			/* --- Custom Scrollbar --- */
+			::-webkit-scrollbar {
+				width: 16px;
+				height: 16px;
+			}
+			
+			::-webkit-scrollbar-track {
+				background: #dfdfdf;
+				border: 1px solid #808080;
+			}
+			
+			::-webkit-scrollbar-thumb {
+				background: #c0c0c0;
+				border: 2px outset #dfdfdf;
+			}
+			
+			::-webkit-scrollbar-thumb:hover {
+				background: #b0b0b0;
+			}
+			
+			::-webkit-scrollbar-button {
+				background: #c0c0c0;
+				border: 2px outset #dfdfdf;
+				height: 16px;
+			}
+			
+			/* --- Fieldset Styling --- */
+			fieldset {
+				border: 2px groove #c0c0c0;
+				padding: 12px 15px;
+				margin: 0;
+				background: rgba(255,255,255,0.02);
+			}
+			
+			fieldset legend {
+				padding: 0 8px;
+				font-weight: 600;
+				color: #000080;
+			}
+			
+			/* --- Tree View --- */
+			.tree-view {
+				list-style: none;
+				padding-left: 0;
+				margin: 10px 0;
+			}
+			
+			.tree-view li {
+				padding: 4px 8px;
+				margin: 2px 0;
+				border-radius: 2px;
+				transition: background 0.1s;
+			}
+			
+			.tree-view li:hover {
+				background: rgba(0,0,128,0.1);
+			}
+			
+			.tree-view li:before {
+				content: "📄 ";
+				margin-right: 5px;
+			}
+		</style>
+	</body>
+</html>

@@ -384,6 +384,20 @@ const projects = [
 				</div>
 			</div>
 
+			<div id="win-photo" class="window draggable-window" style="width: 500px;">
+				<div class="title-bar">
+					<div class="title-bar-text">📷 Photo Gallery.exe</div>
+					<div class="title-bar-controls">
+						<button aria-label="Close" onclick="closeWindow('win-photo')"></button>
+					</div>
+				</div>
+				<div class="window-body" style="padding: 0; background: black;">
+					<div class="photo-slideshow">
+						<canvas id="filmCanvas" width="500" height="400"></canvas>
+					</div>
+				</div>
+			</div>
+
 			<div id="win-contact" class="window draggable-window">
 				<div class="title-bar">
 					<div class="title-bar-text">📧 Contact_Info.txt</div>
@@ -477,6 +491,73 @@ const projects = [
 				const now = new Date();
 				document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 			}, 1000);
+
+			// Photo Slideshow with Film Effect
+			const canvas = document.getElementById('filmCanvas');
+			const ctx = canvas.getContext('2d');
+			const photos = [
+				'/my-portfolio/photo/mm1.jpg',
+				'/my-portfolio/photo/mm2.jpg',
+				'/my-portfolio/photo/mm3.jpg',
+				'/my-portfolio/photo/mm4.jpg',
+				'/my-portfolio/photo/mm5.jpg'
+			];
+			let currentIndex = 0;
+			let images = [];
+
+			// Preload images
+			photos.forEach((src, i) => {
+				const img = new Image();
+				img.src = src;
+				images[i] = img;
+			});
+
+			function applyFilmEffect() {
+				const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				const data = imageData.data;
+
+				// Add grain and flicker
+				const flicker = 1 + (Math.random() * 0.08 - 0.04);
+				
+				for (let i = 0; i < data.length; i += 4) {
+					const noise = Math.random() * 16 - 8;
+					data[i] = Math.min(255, Math.max(0, data[i] * flicker + noise));
+					data[i + 1] = Math.min(255, Math.max(0, data[i + 1] * flicker + noise));
+					data[i + 2] = Math.min(255, Math.max(0, data[i + 2] * flicker + noise));
+				}
+
+				ctx.putImageData(imageData, 0, 0);
+			}
+
+			function drawPhoto() {
+				if (images[currentIndex].complete) {
+					const img = images[currentIndex];
+					const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+					const x = (canvas.width - img.width * scale) / 2;
+					const y = (canvas.height - img.height * scale) / 2;
+					
+					ctx.fillStyle = 'black';
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+					ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+					applyFilmEffect();
+				}
+			}
+
+			function nextPhoto() {
+				currentIndex = (currentIndex + 1) % photos.length;
+				drawPhoto();
+			}
+
+			// Animation loop for film effect
+			setInterval(drawPhoto, 50);
+			// Change photo every 3 seconds
+			setInterval(nextPhoto, 1500);
+
+			// Auto-open photo window after 2 seconds
+			setTimeout(() => {
+				openWindow('win-photo');
+				drawPhoto();
+			}, 2000);
 		</script>
 
 		<style>
@@ -870,6 +951,23 @@ const projects = [
 				margin-right: 5px;
 			}
 
+			/* === RESPONSIVE DESIGN === */
+			
+			/* Photo Slideshow */
+			.photo-slideshow {
+				width: 100%;
+				height: 400px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: black;
+			}
+			
+			#filmCanvas {
+				max-width: 100%;
+				height: auto;
+			}
+			
 			/* === RESPONSIVE DESIGN === */
 			
 			/* Tablet (iPad) */

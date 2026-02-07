@@ -470,6 +470,11 @@ const projects = [
 				Start
 			</button>
 			<div class="taskbar-windows" id="taskbar-windows"></div>
+			<div class="system-tray">
+				<img src="/my-portfolio/icons/Category/Volume/Volume.ico" width="16" title="Volume" />
+				<img src="/my-portfolio/icons/Category/Network/Network.ico" width="16" title="Network" />
+				<img src="/my-portfolio/icons/Category/Programs/AVZ.ico" width="16" title="Antivirus" />
+			</div>
 			<div class="time" id="clock">12:00 PM</div>
 		</div>
 
@@ -1070,8 +1075,21 @@ const projects = [
 				max-width: 150px;
 			}
 			
+			.system-tray {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+				padding: 0 8px;
+				border-left: 1px solid #808080;
+				margin-left: 5px;
+			}
+			
+			.system-tray img {
+				display: block;
+			}
+			
 			.time {
-				margin-left: auto;
+				margin-left: 0;
 				background: #c0c0c0;
 				border: inset 2px;
 				padding: 3px 10px;

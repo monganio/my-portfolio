@@ -58,6 +58,16 @@ const projects = [
 				<p>Contact Me</p>
 			</div>
 
+			<div class="shortcut" ondblclick="openWindow('win-photo')" ontouchstart="openWindowMobile(event, 'win-photo')">
+				<img src="/my-portfolio/icons/Category/Media/Movie Frame (3-2-1).ico" alt="Photos" />
+				<p>Photo Gallery</p>
+			</div>
+
+			<div class="shortcut" ondblclick="openWindow('win-resume')" ontouchstart="openWindowMobile(event, 'win-resume')">
+				<img src="/my-portfolio/icons/Category/News/Newspaper (yellow).ico" alt="Resume" />
+				<p>My Resume</p>
+			</div>
+
 			<div class="shortcut">
 				<img src="/my-portfolio/icons/All/My Computer.ico" alt="My Computer" />
 				<p>My Computer</p>
@@ -408,6 +418,32 @@ const projects = [
 				</div>
 			</div>
 
+			<div id="win-resume" class="window draggable-window" style="width: 400px;">
+				<div class="title-bar">
+					<div class="title-bar-text">📄 My Resume</div>
+					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-resume')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-resume')"></button>
+						<button aria-label="Close" onclick="closeWindow('win-resume')"></button>
+					</div>
+				</div>
+				<div class="window-body notepad">
+					<h3>Resume / CV</h3>
+					<hr />
+
+					<p style="margin-top: 20px;">
+						<button class="download-btn" onclick="window.open('/my-portfolio/info/resume.pdf', '_blank')">
+							Download My Resume
+						</button>
+					</p>
+					<hr />
+					<p style="font-size: 13px; color: #666;">
+						Format: PDF<br />
+						Language: English / ไทย
+					</p>
+				</div>
+			</div>
+
 			<div id="win-contact" class="window draggable-window">
 				<div class="title-bar">
 					<div class="title-bar-text">📧 Contact_Info.txt</div>
@@ -635,9 +671,25 @@ const projects = [
 
 			// Auto-open photo window after 2 seconds
 			setTimeout(() => {
+				const photoWin = document.getElementById('win-photo');
+				photoWin.style.left = '100px';
+				photoWin.style.top = '80px';
 				openWindow('win-photo');
 				drawPhoto();
 			}, 2000);
+
+			// Auto-open resume window after 2.5 seconds
+			setTimeout(() => {
+				const resumeWin = document.getElementById('win-resume');
+				if (window.innerWidth > 768) {
+					resumeWin.style.left = '650px';
+					resumeWin.style.top = '80px';
+				} else {
+					resumeWin.style.left = '5%';
+					resumeWin.style.top = '120px';
+				}
+				openWindow('win-resume');
+			}, 2500);
 		</script>
 
 		<style>
@@ -758,6 +810,26 @@ const projects = [
 				border: none;
 				border-top: 1px solid #c0c0c0;
 				margin: 15px 0;
+			}
+
+			.download-btn {
+				padding: 8px 16px;
+				font-size: 14px;
+				font-weight: 600;
+				cursor: url('/my-portfolio/cursor/handcursor.cur'), pointer;
+				background: linear-gradient(180deg, #dfdfdf 0%, #c0c0c0 100%);
+				border: 2px outset #dfdfdf;
+				box-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+				transition: all 0.1s;
+			}
+
+			.download-btn:hover {
+				filter: brightness(1.05);
+			}
+
+			.download-btn:active {
+				border: 2px inset #dfdfdf;
+				filter: brightness(0.95);
 			}
 
 			/* About / Skills */

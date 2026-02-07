@@ -404,7 +404,7 @@ const projects = [
 
 			<div id="win-photo" class="window draggable-window" style="width: 500px;">
 				<div class="title-bar">
-					<div class="title-bar-text">📷 Photo Gallery.exe</div>
+					<div class="title-bar-text">Photo Gallery.exe</div>
 					<div class="title-bar-controls">
 						<button aria-label="Minimize" onclick="minimizeWindow('win-photo')"></button>
 						<button aria-label="Maximize" onclick="maximizeWindow('win-photo')"></button>
@@ -420,7 +420,7 @@ const projects = [
 
 			<div id="win-resume" class="window draggable-window" style="width: 700px;">
 				<div class="title-bar">
-					<div class="title-bar-text">📄 My Resume</div>
+					<div class="title-bar-text">My Resume</div>
 					<div class="title-bar-controls">
 						<button aria-label="Minimize" onclick="minimizeWindow('win-resume')"></button>
 						<button aria-label="Maximize" onclick="maximizeWindow('win-resume')"></button>
@@ -436,7 +436,7 @@ const projects = [
 
 			<div id="win-contact" class="window draggable-window">
 				<div class="title-bar">
-					<div class="title-bar-text">📧 Contact_Info.txt</div>
+					<div class="title-bar-text">Contact_Info.txt</div>
 					<div class="title-bar-controls">
 						<button aria-label="Minimize" onclick="minimizeWindow('win-contact')"></button>
 						<button aria-label="Maximize" onclick="maximizeWindow('win-contact')"></button>
@@ -768,6 +768,51 @@ const projects = [
 				cursor: url('/my-portfolio/cursor/arrow.cur'), move; 
 				padding: 3px 4px; 
 				font-family: 'Prompt', system-ui, sans-serif !important;
+			}
+			
+			.title-bar-controls button {
+				min-width: 16px;
+				min-height: 14px;
+				padding: 0;
+				margin-left: 2px;
+				background: #c0c0c0;
+				border: 1px solid;
+				border-color: #ffffff #000000 #000000 #ffffff;
+				cursor: url('/my-portfolio/cursor/handcursor.cur'), pointer;
+				font-size: 10px;
+				line-height: 1;
+				position: relative;
+			}
+			
+			.title-bar-controls button:active {
+				border-color: #000000 #ffffff #ffffff #000000;
+			}
+			
+			.title-bar-controls button[aria-label="Minimize"]::before {
+				content: "-";
+				position: absolute;
+				bottom: 2px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-weight: bold;
+			}
+			
+			.title-bar-controls button[aria-label="Maximize"]::before {
+				content: "□";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			
+			.title-bar-controls button[aria-label="Close"]::before {
+				content: "×";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 14px;
+				font-weight: bold;
 			}
 			.window-body { 
 				margin: 0; 

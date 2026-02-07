@@ -28,32 +28,32 @@ const projects = [
 	<body>
 		<div class="desktop" id="desktop">
 			
-			<div class="shortcut" ondblclick="openWindow('win-about')">
+			<div class="shortcut" ondblclick="openWindow('win-about')" ontouchstart="openWindowMobile(event, 'win-about')">
 				<img src="/my-portfolio/icons/Category/People/Agent.ico" alt="About Me" />
 				<p>About Me</p>
 			</div>
 
-			<div class="shortcut" ondblclick="openWindow('win-exp')">
+			<div class="shortcut" ondblclick="openWindow('win-exp')" ontouchstart="openWindowMobile(event, 'win-exp')">
 				<img src="/my-portfolio/icons/Category/Briefcases/Briefcase.ico" alt="Experience" />
 				<p>Experiences</p>
 			</div>
 
-            <div class="shortcut" ondblclick="openWindow('win-activity')">
+            <div class="shortcut" ondblclick="openWindow('win-activity')" ontouchstart="openWindowMobile(event, 'win-activity')">
 				<img src="/my-portfolio/icons/Category/Books/Book2.ico" alt="Activities" />
 				<p>Activities & Competitions</p>
 			</div>
 
-			<div class="shortcut" ondblclick="openWindow('win-project')">
+			<div class="shortcut" ondblclick="openWindow('win-project')" ontouchstart="openWindowMobile(event, 'win-project')">
 				<img src="/my-portfolio/icons/Category/Folders/Opened Folder.ico" alt="Projects" />
 				<p>My Projects</p>
 			</div>
 
-            <div class="shortcut" ondblclick="openWindow('win-cert')">
+            <div class="shortcut" ondblclick="openWindow('win-cert')" ontouchstart="openWindowMobile(event, 'win-cert')">
 				<img src="/my-portfolio/icons/Category/Sheets/Certificate.ico" alt="Certificates" />
 				<p>Certificates</p>
 			</div>
 
-			<div class="shortcut" ondblclick="openWindow('win-contact')">
+			<div class="shortcut" ondblclick="openWindow('win-contact')" ontouchstart="openWindowMobile(event, 'win-contact')">
 				<img src="/my-portfolio/icons/All/Mail.ico" alt="Contact" />
 				<p>Contact Me</p>
 			</div>
@@ -72,6 +72,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">About_Me.txt - Notepad</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-about')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-about')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-about')"></button>
 					</div>
 				</div>
@@ -104,6 +106,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">Experience_Explorer.exe</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-exp')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-exp')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-exp')"></button>
 					</div>
 				</div>
@@ -177,6 +181,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">Competitions.log</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-activity')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-activity')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-activity')"></button>
 					</div>
 				</div>
@@ -200,6 +206,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">C:\My-Projects</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-project')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-project')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-project')"></button>
 					</div>
 				</div>
@@ -388,6 +396,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">📷 Photo Gallery.exe</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-photo')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-photo')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-photo')"></button>
 					</div>
 				</div>
@@ -402,6 +412,8 @@ const projects = [
 				<div class="title-bar">
 					<div class="title-bar-text">📧 Contact_Info.txt</div>
 					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-contact')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-contact')"></button>
 						<button aria-label="Close" onclick="closeWindow('win-contact')"></button>
 					</div>
 				</div>
@@ -431,17 +443,85 @@ const projects = [
 				<img src="/my-portfolio/icons/Category/Windows/Windows.ico" width="16" />
 				Start
 			</button>
+			<div class="taskbar-windows" id="taskbar-windows"></div>
 			<div class="time" id="clock">12:00 PM</div>
 		</div>
 
 		<script is:inline>
+			const windowStates = {};
+			
 			function openWindow(id) {
 				const win = document.getElementById(id);
 				win.style.display = 'block';
 				win.style.zIndex = Number(new Date().getTime() / 1000).toFixed(0);
+				if (windowStates[id]?.minimized) {
+					windowStates[id].minimized = false;
+				}
+				updateTaskbar();
 			}
+			
+			function openWindowMobile(e, id) {
+				e.preventDefault();
+				openWindow(id);
+			}
+			
 			function closeWindow(id) {
 				document.getElementById(id).style.display = 'none';
+				updateTaskbar();
+			}
+			
+			function minimizeWindow(id) {
+				const win = document.getElementById(id);
+				win.style.display = 'none';
+				windowStates[id] = { minimized: true };
+				updateTaskbar();
+			}
+			
+			function maximizeWindow(id) {
+				const win = document.getElementById(id);
+				if (!windowStates[id]) windowStates[id] = {};
+				
+				if (windowStates[id].maximized) {
+					win.style.width = windowStates[id].oldWidth;
+					win.style.height = windowStates[id].oldHeight;
+					win.style.left = windowStates[id].oldLeft;
+					win.style.top = windowStates[id].oldTop;
+					windowStates[id].maximized = false;
+				} else {
+					windowStates[id].oldWidth = win.style.width || '600px';
+					windowStates[id].oldHeight = win.style.height || 'auto';
+					windowStates[id].oldLeft = win.style.left || '150px';
+					windowStates[id].oldTop = win.style.top || '50px';
+					
+					win.style.width = 'calc(100vw - 10px)';
+					win.style.height = 'calc(100vh - 45px)';
+					win.style.left = '5px';
+					win.style.top = '5px';
+					windowStates[id].maximized = true;
+				}
+			}
+			
+			function updateTaskbar() {
+				const taskbarWindows = document.getElementById('taskbar-windows');
+				taskbarWindows.innerHTML = '';
+				
+				const windows = document.querySelectorAll('.draggable-window');
+				windows.forEach(win => {
+					if (win.style.display === 'block' || windowStates[win.id]?.minimized) {
+						const title = win.querySelector('.title-bar-text').textContent;
+						const btn = document.createElement('button');
+						btn.className = 'taskbar-item';
+						btn.textContent = title.length > 20 ? title.substring(0, 20) + '...' : title;
+						btn.onclick = () => {
+							if (windowStates[win.id]?.minimized) {
+								openWindow(win.id);
+							} else {
+								minimizeWindow(win.id);
+							}
+						};
+						taskbarWindows.appendChild(btn);
+					}
+				});
 			}
 
 			// Draggable Script
@@ -842,6 +922,7 @@ const projects = [
 					inset 1px 1px 0px rgba(255,255,255,0.8),
 					0 -2px 4px rgba(0,0,0,0.1);
 				z-index: 9999;
+				gap: 5px;
 			}
 			
 			.start-button {
@@ -852,6 +933,7 @@ const projects = [
 				height: 28px;
 				padding: 0 8px;
 				transition: all 0.1s;
+				flex-shrink: 0;
 			}
 			
 			.start-button:hover {
@@ -862,12 +944,30 @@ const projects = [
 				filter: brightness(0.95);
 			}
 			
+			.taskbar-windows {
+				display: flex;
+				gap: 3px;
+				flex: 1;
+				overflow-x: auto;
+				overflow-y: hidden;
+			}
+			
+			.taskbar-item {
+				height: 28px;
+				padding: 0 10px;
+				font-size: 12px;
+				white-space: nowrap;
+				min-width: 100px;
+				max-width: 150px;
+			}
+			
 			.time {
 				margin-left: auto;
 				background: #c0c0c0;
 				border: inset 2px;
 				padding: 3px 10px;
 				font-size: 12px;
+				flex-shrink: 0;
 			}
 
 			/* --- Typography --- */

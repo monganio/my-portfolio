@@ -429,6 +429,11 @@ const projects = [
 				</div>
 				<div class="window-body" style="padding: 0;">
 					<div class="pdf-viewer">
+						<div class="mobile-pdf-notice" style="display: none; padding: 20px; text-align: center;">
+							<p>📄 <b>Resume PDF</b></p>
+							<p>กรุณาแตะปุ่มด้านล่างเพื่อดู Resume แบบเต็ม</p>
+							<a href="/my-portfolio/info/Resume.pdf" target="_blank" class="download-btn">เปิด Resume</a>
+						</div>
 						<iframe src="/my-portfolio/info/Resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
 					</div>
 				</div>
@@ -1233,6 +1238,14 @@ const projects = [
 			
 			/* Mobile */
 			@media (max-width: 768px) {
+				.pdf-viewer iframe {
+					display: none;
+				}
+				
+				.mobile-pdf-notice {
+					display: block !important;
+				}
+				
 				.pdf-viewer {
 					height: 500px;
 				}

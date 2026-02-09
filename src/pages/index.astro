@@ -135,7 +135,7 @@ const projects = [
 							<li>
 								<span class="timeline-year">2021 - 2022</span>
 								<div class="timeline-detail">
-									<b>GED &amp; Gap Year</b><br />
+									<b>GED &amp; Gap Year</b>
 								</div>
 							</li>
 							<li>
@@ -920,13 +920,14 @@ const projects = [
 				margin-bottom: 8px;
 			}
 			.timeline-year {
-				display: inline-block;
+				display: block;
 				min-width: 110px;
 				font-weight: 600;
 				color: #000080;
 			}
 			.timeline-detail {
-				display: inline-block;
+				display: block;
+				margin-top: 5px;
 			}
 			.timeline-note {
 				font-size: 13px;
@@ -1200,6 +1201,13 @@ const projects = [
 				height: 600px;
 				overflow: auto;
 				background: #808080;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.pdf-viewer iframe {
+				width: 100%;
+				height: 100%;
+				border: none;
 			}
 			
 			/* === RESPONSIVE DESIGN === */
@@ -1228,6 +1236,10 @@ const projects = [
 			
 			/* Mobile */
 			@media (max-width: 768px) {
+				.pdf-viewer {
+					height: 500px;
+				}
+				
 				body {
 					font-size: 14px;
 				}
@@ -1317,6 +1329,10 @@ const projects = [
 			
 			/* Small Mobile */
 			@media (max-width: 480px) {
+				.pdf-viewer {
+					height: 400px;
+				}
+				
 				.desktop {
 					grid-template-columns: repeat(3, 1fr);
 					gap: 8px;

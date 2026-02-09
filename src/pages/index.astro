@@ -673,17 +673,14 @@ const projects = [
 				drawPhoto();
 			}, 2000);
 
-			// Auto-open resume window after 2.5 seconds
+			// Auto-open resume window after 2.5 seconds (only on desktop)
 			setTimeout(() => {
-				const resumeWin = document.getElementById('win-resume');
-				if (window.innerWidth > 768) {
+				if (window.innerWidth > 1024) {
+					const resumeWin = document.getElementById('win-resume');
 					resumeWin.style.left = '650px';
 					resumeWin.style.top = '80px';
-				} else {
-					resumeWin.style.left = '5%';
-					resumeWin.style.top = '120px';
+					openWindow('win-resume');
 				}
-				openWindow('win-resume');
 			}, 2500);
 		</script>
 

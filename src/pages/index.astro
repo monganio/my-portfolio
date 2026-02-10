@@ -199,15 +199,16 @@ const projects = [
 				<div class="window-body" style="padding: 15px;">
 					<p><b>Activities &amp; Competitions</b></p>
 					<ul class="tree-view">
-						<li>TESA Top Gun Rally 2024</li>
-						<li>TESA Top Gun Rally 2025</li>
-						<li>PSAT Health Hack 2024</li>
-						<li>PSAT Health Hack 2025</li>
-						<li>AI Thailand Benchmark 2025</li>
-						<li>NSC 2025</li>
-						<li>Chaiyo GCP Season 4</li>
-						<li>Chaiyo GCP Season 5</li>
-						<li>PAN-SEA AI DEVELOPER CHALLENGE 2025</li>
+						<li onclick="showCompetitionImage('TGR2024.jpg')">TESA Top Gun Rally 2024</li>
+						<li onclick="showCompetitionImage('TGR2025.jpg')">TESA Top Gun Rally 2025</li>
+						<li onclick="showCompetitionImage('PSAT2024.jpg')">PSAT Health Hack 2024</li>
+						<li onclick="showCompetitionImage('PSAT2025.jpg')">PSAT Health Hack 2025</li>
+						<li onclick="showCompetitionImage('AI_Benchmark_2025.jpg')">AI Thailand Benchmark 2025</li>
+						<li onclick="showCompetitionImage('AI_Benchmark_2026.jpg')">AI Thailand Benchmark 2026</li>
+						<li onclick="showCompetitionImage('NSC2025.jpg')">NSC 2025</li>
+						<li onclick="showCompetitionImage('ChaiyoGCP_ss4.jpg')">Chaiyo GCP Season 4</li>
+						<li onclick="showCompetitionImage('ChaiyoGCP_ss5.png')">Chaiyo GCP Season 5</li>
+						<li onclick="showCompetitionImage('PAN-SEA_2025.jpg')">PAN-SEA AI DEVELOPER CHALLENGE 2025</li>
 					</ul>
 				</div>
 			</div>
@@ -467,6 +468,21 @@ const projects = [
 				</div>
 			</div>
 
+			<!-- Competition Image Viewer -->
+			<div id="win-competition-img" class="window draggable-window" style="width: 600px; display: none;">
+				<div class="title-bar">
+					<div class="title-bar-text">Competition Image</div>
+					<div class="title-bar-controls">
+						<button aria-label="Minimize" onclick="minimizeWindow('win-competition-img')"></button>
+						<button aria-label="Maximize" onclick="maximizeWindow('win-competition-img')"></button>
+						<button aria-label="Close" onclick="closeWindow('win-competition-img')"></button>
+					</div>
+				</div>
+				<div class="window-body" style="padding: 10px; text-align: center;">
+					<img id="competition-image" src="" alt="Competition" style="max-width: 100%; height: auto; border: 2px inset #c0c0c0;" />
+				</div>
+			</div>
+
 		</div>
 
 		<div class="taskbar">
@@ -499,6 +515,12 @@ const projects = [
 			function openWindowMobile(e, id) {
 				e.preventDefault();
 				openWindow(id);
+			}
+			
+			function showCompetitionImage(imageName) {
+				const img = document.getElementById('competition-image');
+				img.src = '/my-portfolio/info/competition_img/' + imageName;
+				openWindow('win-competition-img');
 			}
 			
 			function closeWindow(id) {
@@ -1170,6 +1192,7 @@ const projects = [
 				margin: 2px 0;
 				border-radius: 2px;
 				transition: background 0.1s;
+				cursor: url('/my-portfolio/cursor/handcursor.cur'), pointer;
 			}
 			
 			.tree-view li:hover {

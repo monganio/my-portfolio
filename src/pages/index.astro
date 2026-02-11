@@ -1239,6 +1239,14 @@ const projects = [
 			
 			/* Tablet (iPad) */
 			@media (max-width: 1024px) {
+				.pdf-viewer iframe {
+					display: none;
+				}
+				
+				.mobile-pdf-notice {
+					display: block !important;
+				}
+				
 				.desktop {
 					grid-template-columns: repeat(auto-fill, 75px);
 					grid-template-rows: repeat(auto-fill, 90px);
